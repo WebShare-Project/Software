@@ -1,0 +1,19 @@
+Private Sub Add_Click(sender As Object, e As EventArgs) Handles Add.Click
+Try
+OracleConnection1.Open()
+Dim command As String
+command = "insert into Dashboard(CName, CTopic, URLID, URL)" _
+& " values('" & CombCN.Text & "', '" _ & CombCT.Text & "', '" &
+CombUID.Text & "', '" TextURL.Text & ")"
+OracleDataAdapter1.InsertCommand.CommandText = command
+lblSQL.Text = command
+OracleDataAdapter1.InsertCommand.ExecuteNonQuery()
+MsgBox("Addition Successful", MsgBoxStyle.Information, "Addition Status")
+clear()
+reLoadURL()
+Catch ex As Exception
+MessageBox.Show(ex.Message)
+Finally
+OracleConnection1.Close()
+End Try
+End Sub
