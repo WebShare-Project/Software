@@ -1,0 +1,23 @@
+Try
+Dim table As New DataTable
+Dim command As String
+Dim recordCount As Integer
+If combCN.Text = Nothing Then
+MsgBox("Please Enter Course Name", MsgBoxStyle.Critical, "Error")
+Else
+command = "select * from URL where " _
+& "Course Name = " & " '" & combCN.Text & "'"
+OracleDataAdapter1.SelectCommand.CommandText = command
+lblSQL.Text = command
+table.Clear()
+recordCount = OracleDataAdapter1.Fill(table)
+If recordCount <> 0 Then
+combCT.Text = CStr(table.Rows(0)(1))
+combURLID.Text = CStr(table.Rows(0)(2))
+Else
+MessageBox.Show("URL not found")
+End If
+End If
+Catch ex As Exception
+MessageBox.Show(ex.Message)
+End Try
