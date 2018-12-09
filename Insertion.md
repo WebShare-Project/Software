@@ -1,0 +1,30 @@
+# Software
+insert into USER_ACCOUNT values (201403245, '333555');
+
+ insert into USER_ACCOUNT values (201401207, '444555');
+
+ insert into USER_ACCOUNT values (201303866, '222555');
+
+insert into USER_ACCOUNT values (201401820, '111555');
+
+insert into COURSE values ('DLD', 3245);
+
+insert into COURSE values ('Data Structure', 4523);
+
+insert into COURSE values ('Softwere Engineering', 4546);
+
+insert into COURSE values ('Computer Network', 63745);
+
+insert into STUDENT values (201403245, 'Lina', 'Alkhatib', 'Computer Engineering');
+
+insert into STUDENT values (201401207, 'Hawra', 'AlSaid', 'Computer Engineering');
+
+insert into URL values (111, 'OCR', 3245,201403245, 'https://www.youtube.com/watch?v=TMJj015C93A&t=');
+
+insert into URL values (112, 'Use case', 4546,201401207,'https://www.youtube.com/watch?v=eMVyZ6Ax-');
+
+insert into STUDENT_COURSE values (3245, 201403245);
+
+ insert into STUDENT_COURSE values (4546, 201401207);
+
+CREATE OR REPLACE VIEW "STUDENT URL LIST" AS (SELECT * FROM URL);
