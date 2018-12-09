@@ -1,0 +1,61 @@
+Try
+OracleConnection1.Open()
+Dim command As String
+Dim recordCount As Integer
+If combCN.Text = Nothing Then
+MsgBox("Please Enter Course Name", MsgBoxStyle.Critical, "Error")
+Else
+command = "delete from WEBSHARE SYSTEM where Course Name = '" _
+& combCN.Text & "'"
+OracleDataAdapter1.DeleteCommand.CommandText = command
+lblSQL.Text = command
+recordCount = OracleDataAdapter1.DeleteCommand.ExecuteNonQuery()
+If (recordCount <> 0) Then
+MsgBox("Delete Successful", MsgBoxStyle.Information, "Delete Status")
+clear()
+reLoadURL()
+Else
+MessageBox.Show("URL not found")
+End If
+End If
+Catch ex As Exception
+MessageBox.Show(ex.Message)
+If combCT.Text = Nothing Then
+MsgBox("Please Enter Course Topic", MsgBoxStyle.Critical, "Error")
+Else
+command = "delete from WEBSHARE SYSTEM where Course Topic = '" _
+& combCT.Text & "'"
+OracleDataAdapter1.DeleteCommand.CommandText = command
+lblSQL.Text = command
+recordCount = OracleDataAdapter1.DeleteCommand.ExecuteNonQuery()
+If (recordCount <> 0) Then
+MsgBox("Delete Successful", MsgBoxStyle.Information, "Delete Status")
+clear()
+reLoadURL()
+Else
+MessageBox.Show("URL not found")
+End If
+End If
+Catch ex As Exception
+MessageBox.Show(ex.Message)
+If combURLID.Text = Nothing Then
+MsgBox("Please Enter URL ID", MsgBoxStyle.Critical, "Error")
+Else
+command = "delete from WEBSHARE SYSTEM where URL ID = '" _
+& combCN.Text & "'"
+OracleDataAdapter1.DeleteCommand.CommandText = command
+lblSQL.Text = command
+recordCount = OracleDataAdapter1.DeleteCommand.ExecuteNonQuery()
+If (recordCount <> 0) Then
+MsgBox("Delete Successful", MsgBoxStyle.Information, "Delete Status")
+clear()
+reLoadURL()
+Else
+MessageBox.Show("URL not found")
+End If
+End If
+Catch ex As Exception
+MessageBox.Show(ex.Message)
+Finally
+OracleConnection1.Close()
+End Try
